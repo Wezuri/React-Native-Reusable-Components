@@ -40,8 +40,13 @@ function WelcomeScreen({ navigation }) {
         setData(deleteValue(data));
     }
 
+    //List View that displays values starting from 1, Odd numbers
+    // are coloured blue and even numbers are coloured red
+    //Add Value button adds a value to list, the number is determined 
+    // by adding 1 to the last value
+    //Delete Value button removes a value from the list
     return(
-        <SafeAreaView style={[styles.DroidSafeArea, styles.WelcomeScreenView]}>
+        <SafeAreaView style={styles.WelcomeScreenView}>
             <Button
                 title="Go to Profile"
                 onPress={() => navigation.navigate('Profile')}
