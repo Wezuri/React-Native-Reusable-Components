@@ -47,30 +47,50 @@ function WelcomeScreen({ navigation }) {
     //Delete Value button removes a value from the list
     return(
         <SafeAreaView style={styles.WelcomeScreenView}>
-            <Button
-                title="Go to Profile"
-                onPress={() => navigation.navigate('Profile')}
-            />
+            <View style = {{flex: 1, flexDirection: 'row', backgroundColor: "red",}}>
+                <View>
+                    <Button
+                        title="Go to Profile"
+                        onPress={() => navigation.navigate('Profile')}
+                    />
+                </View>
+                <View>
+                    <Button
+                        title="Bottom tab navigation"
+                        onPress={() => navigation.navigate('BottomTabBarScreen')}
+                    />
+                </View>
+            </View>
             
-            <FlatList
-                style={{width: 200}}
-                data={data}
-                renderItem={({item}) => (
-                <View >
-                    <Text style={item.isEven ? styles.Even : styles.Odd}>{item.value}</Text>
-                </View>)}
-                
-            />
+            <View style = {{ width: 200, flex: 7, flexDirection: 'row', backgroundColor: "green", }}>
+                <FlatList
+                    style={{ backgroundColor: "gray",}}
+                    data={data}
+                    renderItem={({item}) => (
+                    <View >
+                        <Text style={item.isEven ? styles.Even : styles.Odd}>{item.value}</Text>
+                    </View>)}
+                    
+                />
+            </View>
+            
+            <View style = {{flex: 1, flexDirection: 'row',  backgroundColor: "yellow",}}>
 
-            <Button
-                title="Add Value"
-                onPress={() => handleAddValue()}
-            />
+                <View>
+                    <Button
+                        title="Add Value"
+                        onPress={() => handleAddValue()}
+                    />
+                </View>
+                
+                <View>
+                    <Button
+                        title="Delete Value"
+                        onPress={() => handleDelValue()}
+                    />
+                </View>
+            </View>
             
-            <Button
-                title="Delete Value"
-                onPress={() => handleDelValue()}
-            />
 
         </SafeAreaView>
     );
@@ -85,9 +105,11 @@ const styles = StyleSheet.create({
     },
 
     WelcomeScreenView: {
-        flex: 1, 
+        flex: 1,
+        flexDirection: 'column',
         alignItems: 'center', 
-        justifyContent: 'center'
+        justifyContent: "center",
+
     },
 
     Odd: {
